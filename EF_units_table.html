@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高認数学 展開・因数分解（EFシリーズ）単元表</title>
+
+<!-- KaTeX (CDN) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{
+    delimiters:[
+      {left:'$$',right:'$$',display:true},
+      {left:'$',right:'$',display:false}
+    ],
+    throwOnError:false
+  });"></script>
+
+<style>
+:root{
+  --primary:#0f766e;
+  --primary-light:#ccfbf1;
+  --primary-dark:#0d6661;
+  --accent:#e8372d;
+  --accent-light:#fff1f0;
+  --success:#16a34a;
+  --success-light:#dcfce7;
+  --warn:#d97706;
+  --warn-light:#fffbeb;
+  --bg:#f0fdfa;
+  --card:#ffffff;
+  --border:#99f6e4;
+  --text:#1e293b;
+  --text-sub:#64748b;
+  --radius:12px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'BIZ UDPGothic','BIZ UDP Gothic','Meiryo',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  padding-bottom:60px;
+  line-height:1.6;
+}
+
+/* ヘッダー */
+.page-header{
+  background:linear-gradient(135deg,#0f766e,#0d9488);
+  color:#fff;
+  padding:24px 20px 20px;
+  text-align:center;
+  box-shadow:0 4px 14px rgba(15,118,110,.3);
+}
+.page-header .school-name{
+  font-size:.78em;
+  opacity:.85;
+  letter-spacing:.15em;
+  margin-bottom:5px;
+}
+.page-header h1{
+  font-size:clamp(1.15em,4vw,1.55em);
+  font-weight:700;
+  margin:0 0 6px 0;
+  line-height:1.4;
+}
+.page-header .subtitle{
+  font-size:.85em;
+  opacity:.92;
+}
+
+/* メインコンテナ */
+.g-container{
+  max-width:920px;
+  margin:0 auto;
+  padding:24px 15px 40px;
+}
+
+/* 概要ボックス */
+.overview-box{
+  background:var(--card);
+  border:1.5px solid var(--border);
+  border-radius:var(--radius);
+  padding:16px 20px;
+  margin-bottom:24px;
+  font-size:.92em;
+  line-height:1.9;
+}
+.overview-box .ot{
+  font-size:.85em;
+  font-weight:700;
+  color:var(--primary);
+  margin-bottom:8px;
+}
+.overview-box .stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:12px;
+}
+.overview-box .stat-cell{
+  background:var(--primary-light);
+  border-radius:8px;
+  padding:9px 6px;
+  text-align:center;
+}
+.overview-box .stat-num{
+  font-size:1.4em;
+  font-weight:700;
+  color:var(--primary);
+}
+.overview-box .stat-label{
+  font-size:.72em;
+  color:var(--text-sub);
+}
+
+/* セクション見出し */
+.section-title{
+  font-size:1.05em;
+  font-weight:700;
+  color:#fff;
+  background:var(--primary);
+  border-radius:8px;
+  padding:8px 14px;
+  margin-bottom:16px;
+  margin-top:28px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.section-title:first-of-type{margin-top:0;}
+.section-title .badge{
+  background:rgba(255,255,255,.25);
+  border-radius:4px;
+  padding:2px 8px;
+  font-size:.78em;
+}
+
+/* 単元カード */
+.unit-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:11px;
+  margin-bottom:8px;
+}
+.unit-card{
+  background:var(--card);
+  border:2px solid var(--border);
+  border-radius:var(--radius);
+  padding:14px 16px;
+  display:grid;
+  grid-template-columns:80px 1fr;
+  gap:14px;
+  align-items:start;
+  transition:transform .15s,box-shadow .15s;
+}
+.unit-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 4px 14px rgba(15,118,110,.15);
+  border-color:var(--primary);
+}
+.unit-card.sub{
+  grid-template-columns:80px 1fr;
+  margin-left:24px;
+  border-left:4px solid var(--warn);
+  background:#fffbeb;
+}
+
+.unit-code{
+  background:var(--primary);
+  color:#fff;
+  border-radius:8px;
+  padding:8px 6px;
+  text-align:center;
+  font-weight:700;
+  font-size:.92em;
+  letter-spacing:.05em;
+  height:fit-content;
+}
+.unit-card.sub .unit-code{
+  background:var(--warn);
+}
+
+.unit-body .unit-title{
+  font-size:1em;
+  font-weight:700;
+  color:var(--primary);
+  margin-bottom:4px;
+  line-height:1.4;
+}
+.unit-card.sub .unit-title{color:#92400e;}
+.unit-body .unit-desc{
+  font-size:.84em;
+  color:var(--text-sub);
+  font-weight:400;
+  margin-bottom:7px;
+  line-height:1.6;
+}
+.unit-body .unit-formula{
+  background:var(--primary-light);
+  border-radius:6px;
+  padding:6px 10px;
+  font-size:.93em;
+  font-weight:700;
+  color:var(--primary);
+  display:inline-block;
+  margin-bottom:6px;
+}
+.unit-card.sub .unit-formula{
+  background:var(--warn-light);
+  color:#92400e;
+}
+.unit-body .unit-key{
+  font-size:.78em;
+  color:var(--text-sub);
+  font-weight:700;
+  margin-top:4px;
+}
+.unit-body .unit-key::before{
+  content:"🔑 ";
+}
+
+/* 学習フロー */
+.flow-section{
+  background:var(--card);
+  border:1.5px solid var(--border);
+  border-radius:var(--radius);
+  padding:14px 17px;
+  margin:24px 0;
+}
+.flow-section .ftitle{
+  font-size:.93em;
+  font-weight:700;
+  color:var(--primary);
+  margin-bottom:9px;
+}
+.flow-section .fbody{
+  font-size:.86em;
+  line-height:1.9;
+}
+
+/* 凡例 */
+.legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:18px;
+  padding:11px 14px;
+  background:var(--card);
+  border:1.5px solid var(--border);
+  border-radius:8px;
+  font-size:.82em;
+}
+.legend-item{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.legend-dot{
+  width:14px;
+  height:14px;
+  border-radius:3px;
+  flex-shrink:0;
+}
+.legend-dot.main{background:var(--primary);}
+.legend-dot.sub{background:var(--warn);}
+
+/* レスポンシブ */
+@media (max-width:600px){
+  .unit-card{
+    grid-template-columns:62px 1fr;
+    gap:10px;
+    padding:11px 13px;
+  }
+  .unit-card.sub{margin-left:14px;}
+  .unit-code{font-size:.82em;padding:7px 4px;}
+  .overview-box .stats{grid-template-columns:repeat(3,1fr);}
+}
+
+/* 印刷向けスタイル */
+@media print{
+  .page-header{background:#0f766e !important;-webkit-print-color-adjust:exact;}
+  .unit-card:hover{transform:none;box-shadow:none;}
+  body{padding-bottom:0;}
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="school-name">江原予備校・高認数学</div>
+  <h1>展開・因数分解 単元表</h1>
+  <div class="subtitle">EFシリーズ（Expansion & Factorization）</div>
+</div>
+
+<main class="g-container">
+
+  <div class="overview-box">
+    <div class="ot">📚 シリーズ概要</div>
+    本シリーズは「式の計算（展開と因数分解）」を網羅的に学ぶ全13単元です。<br>
+    各単元は <strong>導入 → 例題 → 演習 → 確認テスト</strong> の4ステップ構成で進めます。
+    <div class="stats">
+      <div class="stat-cell">
+        <div class="stat-num">13</div>
+        <div class="stat-label">単元</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">52</div>
+        <div class="stat-label">学習ファイル</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">4</div>
+        <div class="stat-label">ステップ／単元</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><span class="legend-dot main"></span>メイン単元</div>
+    <div class="legend-item"><span class="legend-dot sub"></span>サブ単元（パターン詳細）</div>
+  </div>
+
+
+  <!-- ========== 第1部：展開 ========== -->
+  <div class="section-title">
+    <span class="badge">第1部</span>
+    展開（Expansion）— 5単元
+  </div>
+
+  <div class="unit-grid">
+
+    <div class="unit-card">
+      <div class="unit-code">EF01</div>
+      <div class="unit-body">
+        <div class="unit-title">展開の基本（たして・かける）</div>
+        <div class="unit-desc">展開のもっとも基本的なパターン。$(x+a)(x+b)$ を展開する。</div>
+        <div class="unit-formula">$(x+a)(x+b) = x^2 + (a+b)x + ab$</div>
+        <div class="unit-key">「たして・かける」の基本</div>
+      </div>
+    </div>
+
+    <div class="unit-card">
+      <div class="unit-code">EF02</div>
+      <div class="unit-body">
+        <div class="unit-title">平方公式</div>
+        <div class="unit-desc">$( \ )^2$ の形を展開する。$\pm$ で2種類。</div>
+        <div class="unit-formula">$(x \pm a)^2 = x^2 \pm 2ax + a^2$</div>
+        <div class="unit-key">2乗の展開＝3項になる</div>
+      </div>
+    </div>
+
+    <div class="unit-card">
+      <div class="unit-code">EF03</div>
+      <div class="unit-body">
+        <div class="unit-title">和と差の積</div>
+        <div class="unit-desc">符号だけが違う2つのかっこの積を展開する。</div>
+        <div class="unit-formula">$(x+a)(x-a) = x^2 - a^2$</div>
+        <div class="unit-key">2項になる！</div>
+      </div>
+    </div>
+
+    <div class="unit-card">
+      <div class="unit-code">EF04-1</div>
+      <div class="unit-body">
+        <div class="unit-title">公式の組み合わせ展開</div>
+        <div class="unit-desc">EF01〜EF03の3公式を見分けて使い分ける統合練習。</div>
+        <div class="unit-formula">3公式の判別と適用</div>
+        <div class="unit-key">公式選択の判断力</div>
+      </div>
+    </div>
+
+    <div class="unit-card">
+      <div class="unit-code">EF04-2</div>
+      <div class="unit-body">
+        <div class="unit-title">展開の置き換え（A置換）</div>
+        <div class="unit-desc">共通部分を $A$ に置き換えてから展開する。高認頻出。</div>
+        <div class="unit-formula">例)$(x+y+a)(x+y+b)$</div>
+        <div class="unit-key">3公式 + A置換</div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ========== 第2部：因数分解 ========== -->
+  <div class="section-title">
+    <span class="badge">第2部</span>
+    因数分解（Factorization）— 8単元
+  </div>
+
+  <div class="unit-grid">
+
+    <div class="unit-card">
+      <div class="unit-code">EF05</div>
+      <div class="unit-body">
+        <div class="unit-title">因数分解① 差の積</div>
+        <div class="unit-desc">EF03の「逆」。2乗の差を見つけて分解する。</div>
+        <div class="unit-formula">$x^2 - a^2 = (x+a)(x-a)$</div>
+        <div class="unit-key">平方数を覚えよう</div>
+      </div>
+    </div>
+
+    <div class="unit-card">
+      <div class="unit-code">EF06</div>
+      <div class="unit-body">
+        <div class="unit-title">因数分解② たして・かける（総論）</div>
+        <div class="unit-desc">$x^2 + bx + c$ の因数分解。3パターンの全体像を見る。</div>
+        <div class="unit-formula">$x^2 + bx + c \rightarrow (x+\bigcirc)(x+\square)$</div>
+        <div class="unit-key">3パターン判別フロー</div>
+      </div>
+    </div>
+
+    <div class="unit-card sub">
+      <div class="unit-code">EF06-1</div>
+      <div class="unit-body">
+        <div class="unit-title">パターン1：両プラス</div>
+        <div class="unit-desc">定数項＋・係数＋ の場合。EF06のサブ単元。</div>
+        <div class="unit-formula">$(x+\bigcirc)(x+\square)$</div>
+        <div class="unit-key">かけて＞先・たして＞後</div>
+      </div>
+    </div>
+
+    <div class="unit-card sub">
+      <div class="unit-code">EF06-2</div>
+      <div class="unit-body">
+        <div class="unit-title">パターン2：両マイナス</div>
+        <div class="unit-desc">定数項＋・係数− の場合。EF06のサブ単元。</div>
+        <div class="unit-formula">$(x-\bigcirc)(x-\square)$</div>
+        <div class="unit-key">負×負＝正</div>
+      </div>
+    </div>
+
+    <div class="unit-card sub">
+      <div class="unit-code">EF06-3</div>
+      <div class="unit-body">
+        <div class="unit-title">パターン3：符号が逆</div>
+        <div class="unit-desc">定数項− の場合。EF06のサブ単元。</div>
+        <div class="unit-formula">$(x+\bigcirc)(x-\square)$</div>
+        <div class="unit-key">大きい方＝係数と同じ符号</div>
+      </div>
+    </div>
+
+    <div class="unit-card">
+      <div class="unit-code">EF07</div>
+      <div class="unit-body">
+        <div class="unit-title">因数分解③ 完全平方</div>
+        <div class="unit-desc">EF02の「逆」。$( \ )^2$ の形に分解する。</div>
+        <div class="unit-formula">$x^2 \pm 2ax + a^2 = (x \pm a)^2$</div>
+        <div class="unit-key">定数項＝$a^2$、係数＝$\pm 2a$</div>
+      </div>
+    </div>
+
+    <div class="unit-card">
+      <div class="unit-code">EF08</div>
+      <div class="unit-body">
+        <div class="unit-title">因数分解④ 共通因数</div>
+        <div class="unit-desc">共通因数をくくり出す。<strong>因数分解の最初の一手</strong>。</div>
+        <div class="unit-formula">$ax + ay = a(x+y)$</div>
+        <div class="unit-key">最大公約数 × 共通文字</div>
+      </div>
+    </div>
+
+    <div class="unit-card">
+      <div class="unit-code">EF09</div>
+      <div class="unit-body">
+        <div class="unit-title">因数分解⑤ 置き換え（A置換）</div>
+        <div class="unit-desc">EF04-2の「因数分解版」。共通部分を $A$ に置換。</div>
+        <div class="unit-formula">例)$(x+y)^2 + b(x+y) + c$</div>
+        <div class="unit-key">3パターン × A置換</div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- 学習の流れ -->
+  <div class="flow-section">
+    <div class="ftitle">📌 学習の流れ（推奨順）</div>
+    <div class="fbody">
+      <strong>① 展開の基礎を固める</strong>　EF01 → EF02 → EF03 → EF04-1<br>
+      <strong>② 展開の応用</strong>　EF04-2（A置換）<br>
+      <strong>③ 因数分解の基礎</strong>　EF05 → EF06（→ EF06-1 → EF06-2 → EF06-3）<br>
+      <strong>④ 因数分解の応用</strong>　EF07 → EF08 → EF09<br><br>
+      ※ EF06-1〜3 は EF06 の中で必要に応じて深掘りする構成です。
+    </div>
+  </div>
+
+
+  <!-- 展開↔因数分解の対応 -->
+  <div class="flow-section">
+    <div class="ftitle">🔄 展開と因数分解の対応関係</div>
+    <div class="fbody">
+      展開と因数分解は <strong>同じ公式の「逆向き」</strong> の操作です。<br><br>
+      ・EF02（平方公式の展開）　↔　EF07（完全平方の因数分解）<br>
+      ・EF03（和と差の積の展開）　↔　EF05（差の積の因数分解）<br>
+      ・EF01（たして・かけて 展開）　↔　EF06（たして・かけて 因数分解）<br>
+      ・EF04-2（展開の A置換）　↔　EF09（因数分解の A置換）<br>
+    </div>
+  </div>
+
+
+  <!-- 4ステップ構成 -->
+  <div class="flow-section">
+    <div class="ftitle">🎯 各単元の4ステップ構成</div>
+    <div class="fbody">
+      <strong>① 導入（intro.html）</strong>　公式・考え方の解説<br>
+      <strong>② 例題（example.html）</strong>　ステップ式ボタンで思考を体験<br>
+      <strong>③ 演習（drill.html）</strong>　ランダムセットで類題演習<br>
+      <strong>④ 確認テスト（check.html）</strong>　4択クイズで合格判定（花吹雪エフェクト付き🎉）
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>
