@@ -229,13 +229,17 @@ body{
 </head>
 <body>
 
+
 <header class="site-header">
   <div class="logo">🎯 GAMBA 高認対策</div>
   <h1>高認数学 単元一覧</h1>
   <p>やさしい順に取り組もう。確認テストで合格を目指せ！</p>
 </header>
 
-<a class="back-link" href="../gamba_kounin.html">← メインメニューへ</a>
+<a class="back-link" href="https://realizefield.github.io/gamba-kounin-seito/gamba-kounin-seito.html">← メインメニューへ</a>
+
+<div style="max-width:960px;margin:14px auto 0;padding:0 14px;"><a href="EF_units_table.html" style="display:block;text-decoration:none;background:#FFF7ED;border:2px solid #F59E0B;border-radius:12px;padding:14px 16px;"><div style="font-size:15px;font-weight:700;color:#B45309;margin-bottom:4px;">📗 展開・因数分解を EF01 から順に学ぶ</div><div style="font-size:13px;color:#7C5A2A;line-height:1.8;">このページは EF10 から始まります。展開の基本（EF01）から順番に進めたい方は、こちらの単元表をお使いください。</div></a></div>
+
 
 <div class="howto">
   <strong>📌 使い方</strong>　各単元をタップして学習を始めましょう。<br>
@@ -436,7 +440,7 @@ body{
       </div>
     </a>
 
-    <a href="IN05/intro.html" class="unit-card kakomon" data-unit="IN05">
+    <a href="kouninmath_in05/intro.html" class="unit-card kakomon" data-unit="IN05">
       <span class="unit-code code-kakomon">IN05</span>
       <div class="unit-info">
         <div class="unit-name">文章題①（限定配信）</div>
@@ -463,6 +467,21 @@ body{
         <button class="chk btn-a" data-unit="IN06" onclick="setStatus(this,'IN06','A')">A</button>
         <button class="chk btn-b" data-unit="IN06" onclick="setStatus(this,'IN06','B')">B</button>
         <button class="chk btn-c" data-unit="IN06" onclick="setStatus(this,'IN06','C')">C</button>
+      </div>
+    </a>
+
+    <a href="IN07_kakomon/intro.html" class="unit-card kakomon" data-unit="IN07">
+      <span class="unit-code code-kakomon">IN07</span>
+      <div class="unit-info">
+        <div class="unit-name">文章題③（限定配信）</div>
+        <div class="unit-sub">料金型・最新出題傾向（R6・R7）</div>
+        <span class="kakomon-note">🔒 対面指導生徒・限定配信</span>
+      </div>
+      <span class="unit-arrow">›</span>
+      <div class="check-btns" onclick="event.preventDefault()">
+        <button class="chk btn-a" data-unit="IN07" onclick="setStatus(this,'IN07','A')">A</button>
+        <button class="chk btn-b" data-unit="IN07" onclick="setStatus(this,'IN07','B')">B</button>
+        <button class="chk btn-c" data-unit="IN07" onclick="setStatus(this,'IN07','C')">C</button>
       </div>
     </a>
 
@@ -955,7 +974,7 @@ body{
   </div>
   <div class="unit-list">
 
-    <a href="DA01/intro.html" class="unit-card da" data-unit="DA01">
+    <a href="DA01.html" class="unit-card da" data-unit="DA01">
       <span class="unit-code code-da">DA01</span>
       <div class="unit-info">
         <div class="unit-name">代表値</div>
@@ -975,7 +994,7 @@ body{
       </div>
     </a>
 
-    <a href="DA02/intro.html" class="unit-card da" data-unit="DA02">
+    <a href="DA02.html" class="unit-card da" data-unit="DA02">
       <span class="unit-code code-da">DA02</span>
       <div class="unit-info">
         <div class="unit-name">四分位数・箱ひげ図</div>
@@ -995,7 +1014,7 @@ body{
       </div>
     </a>
 
-    <a href="DA03/intro.html" class="unit-card da" data-unit="DA03">
+    <a href="DA03.html" class="unit-card da" data-unit="DA03">
       <span class="unit-code code-da">DA03</span>
       <div class="unit-info">
         <div class="unit-name">分散・標準偏差</div>
@@ -1015,11 +1034,12 @@ body{
       </div>
     </a>
 
-    <a href="DA04/intro.html" class="unit-card da" data-unit="DA04">
+    <a class="unit-card da" data-unit="DA04" style="opacity:.55;cursor:default;" onclick="event.preventDefault()">
       <span class="unit-code code-da">DA04</span>
       <div class="unit-info">
         <div class="unit-name">散布図・相関係数</div>
         <div class="unit-sub">正・負の相関 ── $-1 \leqq r \leqq 1$</div>
+        <span class="kakomon-note">🔧 準備中</span>
       </div>
       <div class="unit-pages">
         <span class="page-tag">説明</span>
@@ -1094,5 +1114,6 @@ document.addEventListener('DOMContentLoaded', function() {
   loadAllStatus();
 });
 </script>
+<script src="https://realizefield.github.io/gamba-kounin-seito/gamba-ai.js" defer></script>
 </body>
 </html>
